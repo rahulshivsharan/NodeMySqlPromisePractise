@@ -45,12 +45,10 @@ function createDeptForAll(){
 }//createDeptForAll
 
 
-createDeptForAll("Archiology","Anthropology").then(function(createDepartment){
-	createDepartment.then(function(rows){
-		console.log("Rows inserted "+rows["affectedRows"]);
-	}).catch(function(error){
-		console.log(error);		
-	}).done(function(){
-		connection.end();
+createDeptForAll("Human Resource","Bio Informatics","Advertisement","Mass Media").then(function(rows){	
+	_.each(rows,function(row){
+		console.log("Rows inserted "+row["affectedRows"]);
 	});
+}).done(function(){
+		connection.end();
 });
