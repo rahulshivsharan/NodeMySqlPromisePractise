@@ -37,7 +37,10 @@ function getSelectedDept(){
 	return Promise.all(promises);
 }
 
-getSelectedDept(getDepartment(16),getDepartment(19),getDepartment(17)).then(function(rows){
+getSelectedDept(getDepartment(16), // returns promise
+				getDepartment(19), // returns promise
+				getDepartment(17)  // returns promise
+				).then(function(rows){
 	_.each(rows,function(row){
 		var department = row[0];
 		console.log("Department Id \""+department.deptId+"\", DepartmentName \""+department.deptName+"\"");	
